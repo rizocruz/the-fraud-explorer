@@ -1,0 +1,9 @@
+﻿<Application x:Class="TFE_core.App"
+             Startup="Application_Startup"
+             Exit="Application_Exit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+
+    </Application.Resources>
+</Application>
