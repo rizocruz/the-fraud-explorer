@@ -7,8 +7,8 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-05-30 15:12:41 -0500 (Wed, 30 May 2016)
- * Revision: v0.9.5
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
+ * Revision: v0.9.6-beta
  *
  * Description: Setup override procedures
  */
@@ -40,7 +40,7 @@ namespace TFE_core.Installer
             {
                 Directory.SetCurrentDirectory(Path.GetDirectoryName
                 (Assembly.GetExecutingAssembly().Location));
-                Process.Start(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\mswcce64svc.exe");
+                Process.Start(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\mswow64svc.exe");
             }
             catch { }
         }

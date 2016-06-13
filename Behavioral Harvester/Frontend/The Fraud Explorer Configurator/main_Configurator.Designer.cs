@@ -7,8 +7,8 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-04-30 15:12:41 -0500 (Wed, 30 April 2016)
- * Revision: v0.9.4
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
+ * Revision: v0.9.6-beta
  *
  * Description: Main window configuration designer
  */
@@ -178,9 +178,9 @@ namespace The_Fraud_Explorer_Configurator
             this.analyticsServer_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.analyticsServer_Label.Location = new System.Drawing.Point(6, 71);
             this.analyticsServer_Label.Name = "analyticsServer_Label";
-            this.analyticsServer_Label.Size = new System.Drawing.Size(236, 15);
+            this.analyticsServer_Label.Size = new System.Drawing.Size(180, 15);
             this.analyticsServer_Label.TabIndex = 6;
-            this.analyticsServer_Label.Text = "Analytics server IP (Splunk, ELK, LogTrust)";
+            this.analyticsServer_Label.Text = "Elasticsearch Analytics server IP";
             // 
             // NFLogo
             // 
@@ -496,7 +496,7 @@ namespace The_Fraud_Explorer_Configurator
             this.harvesterVersion.Name = "harvesterVersion";
             this.harvesterVersion.Size = new System.Drawing.Size(174, 21);
             this.harvesterVersion.TabIndex = 10;
-            this.harvesterVersion.Text = "0.9.4";
+            this.harvesterVersion.Text = "0.9.5";
             // 
             // harvesterText
             // 
@@ -700,9 +700,9 @@ namespace The_Fraud_Explorer_Configurator
             this.UBA.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UBA.Location = new System.Drawing.Point(106, 50);
             this.UBA.Name = "UBA";
-            this.UBA.Size = new System.Drawing.Size(447, 24);
+            this.UBA.Size = new System.Drawing.Size(213, 24);
             this.UBA.TabIndex = 13;
-            this.UBA.Text = "User Behavior Analytics and Operational Intelligence";
+            this.UBA.Text = "Fraud Triangle Analytics";
             // 
             // horizontalLine
             // 

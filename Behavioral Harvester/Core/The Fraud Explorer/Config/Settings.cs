@@ -7,8 +7,8 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-05-30 15:12:41 -0500 (Wed, 30 May 2016)
- * Revision: v0.9.5
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
+ * Revision: v0.9.6-beta
  *
  * Description: Internal configuration
  */
@@ -427,8 +427,8 @@ namespace TFE_core.Config
             
             if (type == "mainServer") return "http://tfe-input.mydomain.com/update.xml";
             if (type == "analyticsServer") return "192.168.1.55";
-            if (type == "filesystemAnalytics") return "1";
-            if (type == "applicationAnalytics") return "1";
+            if (type == "filesystemAnalytics") return "0";
+            if (type == "applicationAnalytics") return "0";
             if (type == "browsingAnalytics") return "0";
             if (type == "networkAnalytics") return "0";
             if (type == "textAnalytics") return "1";
@@ -442,7 +442,7 @@ namespace TFE_core.Config
             if (type == "aesIV") return "0uBu8ycVugDIJz60";
             if (type == "serverPassword") return "KGBz77";
             if (type == "registryKey") return "TFE_64bit";
-            if (type == "harvesterVersion") return "0.9.5";
+            if (type == "harvesterVersion") return "0.9.6";
             if (type == "agentPostfix") return "_agt";
             if (type == "filesystemPort") return "5960";
             if (type == "applicationPort") return "5961";

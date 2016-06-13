@@ -7,15 +7,13 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-05-30 15:12:41 -0500 (Wed, 30 May 2016)
- * Revision: v0.9.5
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
+ * Revision: v0.9.6-beta
  *
  * Description: Analytics
  */
 
-using log4net;
 using System;
-using log4net.Repository.Hierarchy;
 using log4net.Appender;
 using log4net.Layout;
 using TFE_core.Config;
