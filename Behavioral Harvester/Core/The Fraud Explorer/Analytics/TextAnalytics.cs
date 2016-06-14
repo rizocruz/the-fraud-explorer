@@ -127,7 +127,7 @@ namespace TFE_core.Analytics
 
         [DllImport("User32.dll")]
         public static extern int GetWindowText(int hwnd, StringBuilder s, int nMaxCount);
-        private static readonly log4net.ILog logText = log4net.LogManager.GetLogger("textAnalytics_Repo", typeof(DevicesAnalyticsLogger));
+        private static readonly log4net.ILog logText = log4net.LogManager.GetLogger("textAnalytics_Repo", typeof(TextAnalyticsLogger));
 
         public static void TextAnalyticsGlobalProperties()
         {

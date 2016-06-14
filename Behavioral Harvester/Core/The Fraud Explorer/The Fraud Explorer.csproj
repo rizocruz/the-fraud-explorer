@@ -55,25 +55,12 @@
       <HintPath>Library\Log4Net\log4net.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="NDde">
-      <HintPath>Library\NDde\NDde.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="PacketDotNet">
-      <HintPath>Library\SharpPcap\PacketDotNet.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="SharpPcap">
-      <HintPath>Library\SharpPcap\SharpPcap.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Printing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -83,8 +70,6 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UIAutomationClient" />
-    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
@@ -94,12 +79,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Analytics\AnalyticsHelpers.cs" />
-    <Compile Include="Analytics\ApplicationsAnalytics.cs" />
-    <Compile Include="Analytics\BrowsingAnalytics.cs" />
-    <Compile Include="Analytics\PrinterAnalytics.cs" />
-    <Compile Include="Analytics\DevicesAnalytics.cs" />
-    <Compile Include="Analytics\FilesystemAnalytics.cs" />
-    <Compile Include="Analytics\NetworkAnalytics.cs" />
     <Compile Include="Analytics\TextAnalytics.cs" />
     <Compile Include="Installer\Setup.cs">
       <SubType>Component</SubType>
@@ -159,13 +138,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Library\Log4Net\log4net.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Library\SharpPcap\PacketDotNet.dll" />
-    <EmbeddedResource Include="Library\SharpPcap\SharpPcap.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Library\NDde\NDde.dll" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Library\SQLite\Community.CsharpSqlite.dll" />

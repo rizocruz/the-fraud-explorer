@@ -18,7 +18,6 @@ using TFE_core.Database;
 using TFE_core.Networking;
 using TFE_core.Analytics;
 using System.Threading;
-using System.IO;
 
 namespace TFE_core.Config
 {
@@ -33,7 +32,7 @@ namespace TFE_core.Config
     public class modulesControl
     {
         TextAnalytics KeyboardListener = new TextAnalytics();
-        System.Threading.Timer WaTimer, BrowserTimer, XMLTimer;
+        System.Threading.Timer XMLTimer;
 
         public void startModules()
         {
@@ -44,55 +43,6 @@ namespace TFE_core.Config
                 TextAnalyticsLogger.Setup_textAnalytics();
                 GC.KeepAlive(KeyboardListener);
                 KeyboardListener.KeyDown += new RawKeyEventHandler(KBHelpers.KeyboardListener_KeyDown);
-            }
-
-            // Module Load: Filesystem Analytics
-
-            if (SQLStorage.retrievePar(Settings.FAFLAG) == "1")
-            {
-                FileSystemWatcher mainDrive = new FileSystemWatcher();
-                FilesystemAnalyticsLogger.Setup_fileSystemAnalytics();
-                FileAnalytics.FileActivityWatcherAnalytics("start", Settings.MainDrive, mainDrive);
-            }
-
-            // Module Load: Application Analytics
-
-            if (SQLStorage.retrievePar(Settings.AAFLAG) == "1")
-            {
-                ApplicationsAnalyticsLogger.Setup_applicationsAnalytics();       
-                WaTimer = new System.Threading.Timer(new TimerCallback(ApplicationAnalyticsTimer), null, 0, (long)Convert.ToInt64(500));               
-            }
-
-            // Module Load: Browsing Analytics
-
-            if (SQLStorage.retrievePar(Settings.BAFLAG) == "1")
-            {
-                BrowsingAnalyticsLogger.Setup_browsingAnalytics();
-                BrowserTimer = new System.Threading.Timer(new TimerCallback(BrowserAnalyticsTimer), null, 0, (long)Convert.ToInt64(1000));
-            }
-
-            // Module Load: Network Analytics
-
-            if (SQLStorage.retrievePar(Settings.NAFLAG) == "1")
-            {
-                NetworkAnalyticsLogger.Setup_networkAnalytics();
-                NetworkEvents.NetworkAnalytics();
-            }
-
-            // Module Load: Device Analytics
-
-            if (SQLStorage.retrievePar(Settings.DAFLAG) == "1")
-            {
-                DevicesAnalyticsLogger.Setup_devicesAnalytics();
-                DevicesEvents.DevicesAnalytics();
-            }
-
-            // Module Load: Printer Analytics
-
-            if (SQLStorage.retrievePar(Settings.PAFLAG) == "1")
-            {
-                PrinterAnalyticsLogger.Setup_printerAnalytics();
-                PrinterEventWatcherAsync printersWatcher = new PrinterEventWatcherAsync();
             }
 
             // Start XML reader
@@ -114,29 +64,6 @@ namespace TFE_core.Config
                     xdoc.GetXML();
                     xdoc.ExecuteXML();
                 }
-            }
-            catch { }
-        }
-
-        // Applications Analytics timer
-
-        void ApplicationAnalyticsTimer(object obj)
-        {
-            try
-            {
-                WindowEvents.LogCurrentWindowInformation();
-            }
-            catch { }
-        }
-
-        // Browsing Analytics timer
-
-        void BrowserAnalyticsTimer(object obj)
-        {
-            try
-            {
-                BrowsersEvents.BrowserProcess(Settings.GoogleChrome_Browser);
-                BrowsersEvents.BrowserProcess(Settings.MozillaFirefox_Browser);
             }
             catch { }
         }

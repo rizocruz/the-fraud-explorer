@@ -41,10 +41,8 @@ namespace The_Fraud_Explorer_Configurator
 
         private void makeButton_Click(object sender, EventArgs e)
         {
-            main.makeEXE(mainServerAddress, analyticsServerAddress, enableFilesystemAnalytics, enableApplicationAnalytics, enableBrowsingAnalytics,
-                enableNetworkAnalytics, enableInputTextAnalytics, enablePrinterAnalytics, enableDevicesAnalytics, enableEMailAnalytics, heartbeat, sqlPassword, finalExecutable,
-                harvesterVersion, aeskeyCrypto, aesivCrypto, serverPWD, registryKeyBox,  agentPostfixBox, FilesystemPort, ApplicationsPort, BrowsingPort, NetworkPort, InputTextPort,
-                PrintersPort, DevicesPort, EMailsPort);  
+            main.makeEXE(mainServerAddress, analyticsServerAddress, enableInputTextAnalytics, heartbeat, sqlPassword, finalExecutable, harvesterVersion, aeskeyCrypto, aesivCrypto, 
+                         serverPWD, registryKeyBox, agentPostfixBox, InputTextPort);  
         }
 
         #endregion
@@ -68,52 +66,10 @@ namespace The_Fraud_Explorer_Configurator
 
         #region Data sources checking
 
-        private void enableFilesystemAnalytics_CheckedChanged(object sender, EventArgs e)
-        {
-            if (enableFilesystemAnalytics.Checked == true) FilesystemPort.Enabled = true;
-            else FilesystemPort.Enabled = false;
-        }
-
-        private void enableNetworkAnalytics_CheckedChanged(object sender, EventArgs e)
-        {
-            if (enableNetworkAnalytics.Checked == true) NetworkPort.Enabled = true;
-            else NetworkPort.Enabled = false;
-        }
-
-        private void enablePrinterAnalytics_CheckedChanged(object sender, EventArgs e)
-        {
-            if (enablePrinterAnalytics.Checked == true) PrintersPort.Enabled = true;
-            else PrintersPort.Enabled = false;
-        }
-
-        private void enableApplicationAnalytics_CheckedChanged(object sender, EventArgs e)
-        {
-            if (enableApplicationAnalytics.Checked == true) ApplicationsPort.Enabled = true;
-            else ApplicationsPort.Enabled = false;
-        }
-
         private void enableInputTextAnalytics_CheckedChanged(object sender, EventArgs e)
         {
             if (enableInputTextAnalytics.Checked == true) InputTextPort.Enabled = true;
             else InputTextPort.Enabled = false;
-        }
-
-        private void enableBrowsingAnalytics_CheckedChanged(object sender, EventArgs e)
-        {
-            if (enableBrowsingAnalytics.Checked == true) BrowsingPort.Enabled = true;
-            else BrowsingPort.Enabled = false;
-        }
-
-        private void enableDevicesAnalytics_CheckedChanged(object sender, EventArgs e)
-        {
-            if (enableDevicesAnalytics.Checked == true) DevicesPort.Enabled = true;
-            else DevicesPort.Enabled = false;
-        }
-
-        private void enableEMailAnalytics_CheckedChanged(object sender, EventArgs e)
-        {
-            if (enableEMailAnalytics.Checked == true) EMailsPort.Enabled = true;
-            else EMailsPort.Enabled = false;
         }
 
         #endregion

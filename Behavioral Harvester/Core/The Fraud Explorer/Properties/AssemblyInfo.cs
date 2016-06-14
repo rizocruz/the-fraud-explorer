@@ -17,15 +17,15 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 
-[assembly: AssemblyTitle("WCCE Library")]
-[assembly: AssemblyDescription("WCCE Library")]
+[assembly: AssemblyTitle("TFE Library")]
+[assembly: AssemblyDescription("TFE Library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("WCCE Corporation")]
-[assembly: AssemblyProduct("WCCE Library")]
-[assembly: AssemblyCopyright("Copyright © 2016 WCCE Corporation")]
+[assembly: AssemblyCompany("TFE Corporation")]
+[assembly: AssemblyProduct("TFE Library")]
+[assembly: AssemblyCopyright("Copyright © 2016 TFE Corporation")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: ThemeInfo(ResourceDictionaryLocation.None, ResourceDictionaryLocation.SourceAssembly)]
-[assembly: AssemblyVersion("0.9.5.0")]
-[assembly: AssemblyFileVersion("0.9.5.0")]
+[assembly: AssemblyVersion("0.9.6.0")]
+[assembly: AssemblyFileVersion("0.9.6.0")]

@@ -89,27 +89,4 @@ namespace TFE_core.Analytics
 
         #endregion
     }
-
-    public static class FilesystemHelpers
-    {
-        /// <summary>
-        /// Filter common filesystem operations
-        /// </summary>
-
-        #region Filter common filesystem operations
-
-        public static string[] excludeDirectoriesAndFiles = { "\\Windows", "\\AppData", "\\ProgramData", "\\Program Files", "\\DefaultAppPool", "NTUSER.DAT", "ntuser.dat", "\\$WINDOWS.~BT" };
-
-        public static bool filterCommonOperations(string path)
-        {
-            foreach(string DirectoriesAndFiles in excludeDirectoriesAndFiles)
-            {
-                if (path.IndexOf(DirectoriesAndFiles) == -1) continue;
-                else return false;
-            }
-            return true;
-        }
-
-        #endregion
-    }
 }

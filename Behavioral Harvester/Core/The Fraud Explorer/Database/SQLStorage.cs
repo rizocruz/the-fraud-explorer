@@ -49,8 +49,7 @@ namespace TFE_core.Database
 
                 // Database structure
 
-                String[] sql_structure = {"create table config (parameter varchar(50), value varchar(100))"
-                                         };
+                String[] sql_structure = {"create table config (parameter varchar(50), value varchar(100))"};
 
                 foreach (string element in sql_structure)
                 {
@@ -64,27 +63,6 @@ namespace TFE_core.Database
                 insertSQL.ExecuteNonQuery();
 
                 insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.HEARTBEAT + "', '" + Initialization.parametersFromBinary(Settings.HEARTBEAT) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.FAFLAG + "', '" + Initialization.parametersFromBinary(Settings.FAFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.PAFLAG + "', '" + Initialization.parametersFromBinary(Settings.PAFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.AAFLAG + "', '" + Initialization.parametersFromBinary(Settings.AAFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.BAFLAG + "', '" + Initialization.parametersFromBinary(Settings.BAFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.NAFLAG + "', '" + Initialization.parametersFromBinary(Settings.NAFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.DAFLAG + "', '" + Initialization.parametersFromBinary(Settings.DAFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.EAFLAG + "', '" + Initialization.parametersFromBinary(Settings.EAFLAG) + "')", connection);
                 insertSQL.ExecuteNonQuery();
 
                 insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.UNIQUEGUID + "', '" + Settings.UNIQUEGUID_VALUE() + "')", connection);
@@ -117,28 +95,7 @@ namespace TFE_core.Database
                 insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.REGFLAG + "', '" + Initialization.parametersFromBinary(Settings.REGFLAG) + "')", connection);
                 insertSQL.ExecuteNonQuery();
 
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.FPORTFLAG + "', '" + Initialization.parametersFromBinary(Settings.FPORTFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.APORTFLAG + "', '" + Initialization.parametersFromBinary(Settings.APORTFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.BPORTFLAG + "', '" + Initialization.parametersFromBinary(Settings.BPORTFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.NPORTFLAG + "', '" + Initialization.parametersFromBinary(Settings.NPORTFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
                 insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.TPORTFLAG + "', '" + Initialization.parametersFromBinary(Settings.TPORTFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.PPORTFLAG + "', '" + Initialization.parametersFromBinary(Settings.PPORTFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.DPORTFLAG + "', '" + Initialization.parametersFromBinary(Settings.DPORTFLAG) + "')", connection);
-                insertSQL.ExecuteNonQuery();
-
-                insertSQL = new SqliteCommand("insert into config (parameter, value) VALUES ('" + Settings.EPORTFLAG + "', '" + Initialization.parametersFromBinary(Settings.EPORTFLAG) + "')", connection);
                 insertSQL.ExecuteNonQuery();
 
                 connection.Close();

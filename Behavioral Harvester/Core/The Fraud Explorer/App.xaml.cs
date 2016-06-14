@@ -33,9 +33,6 @@ namespace TFE_core
             DLLEmbed.Load("TFE_core.Library.SQLite.Community.CsharpSqlite.dll", "Community.CsharpSqlite.dll");
             DLLEmbed.Load("TFE_core.Library.SQLite.Community.CsharpSqlite.SQLiteClient.dll", "Community.CsharpSqlite.SQLiteClient.dll");
             DLLEmbed.Load("TFE_core.Library.Log4Net.log4net.dll","log4net.dll");
-            DLLEmbed.Load("TFE_core.Library.SharpPcap.PacketDotNet.dll", "PacketDotNet.dll");
-            DLLEmbed.Load("TFE_core.Library.SharpPcap.SharpPcap.dll", "SharpPcap.dll");
-            DLLEmbed.Load("TFE_core.Library.NDde.NDde.dll", "NDde.dll");
 
             AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);           
         }

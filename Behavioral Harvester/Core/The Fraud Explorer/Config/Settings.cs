@@ -54,17 +54,6 @@ namespace TFE_core.Config
         #endregion
 
         /// <summary>
-        /// Analytics variables
-        /// </summary>
-
-        #region Analytics variables
-
-        public const string GoogleChrome_Browser = "chrome";
-        public const string MozillaFirefox_Browser = "firefox";
-
-        #endregion
-
-        /// <summary>
         /// Configuration variables
         /// </summary>
 
@@ -78,14 +67,7 @@ namespace TFE_core.Config
         }
 
         public const string HEARTBEAT = "heartbeat";
-        public const string AAFLAG = "applicationAnalytics";
-        public const string BAFLAG = "browsingAnalytics";
-        public const string NAFLAG = "networkAnalytics";
-        public const string DAFLAG = "deviceAnalytics";
-        public const string PAFLAG = "printerAnalytics";
         public const string TAFLAG = "textAnalytics";
-        public const string FAFLAG = "filesystemAnalytics";
-        public const string EAFLAG = "emailAnalytics";
         public const string SRFLAG = "mainServer";
         public const string ANFLAG = "analyticsServer";
         public const string AESKEYFLAG = "aesKey";
@@ -95,14 +77,7 @@ namespace TFE_core.Config
         public const string SRPWDFLAG = "serverPassword";
         public const string HVERFLAG = "harvesterVersion";
         public const string APOSTFIXFLAG = "agentPostfix";
-        public const string FPORTFLAG = "filesystemPort";
-        public const string APORTFLAG = "applicationPort";
-        public const string BPORTFLAG = "browsingPort";
-        public const string NPORTFLAG = "networkPort";
         public const string TPORTFLAG = "textPort";
-        public const string PPORTFLAG = "printersPort";
-        public const string DPORTFLAG = "devicesPort";
-        public const string EPORTFLAG = "emailsPort";
 
         // Get machine unique identification
 
@@ -395,31 +370,17 @@ namespace TFE_core.Config
 
             if (type == "mainServer") return Cryptography.DecryptAddress(DataSplited[0]);
             if (type == "analyticsServer") return Cryptography.DecryptAddress(DataSplited[1]);
-            if (type == "filesystemAnalytics") return Cryptography.DecryptAddress(DataSplited[2]);
-            if (type == "applicationAnalytics") return Cryptography.DecryptAddress(DataSplited[3]);
-            if (type == "browsingAnalytics") return Cryptography.DecryptAddress(DataSplited[4]);
-            if (type == "networkAnalytics") return Cryptography.DecryptAddress(DataSplited[5]);
-            if (type == "textAnalytics") return Cryptography.DecryptAddress(DataSplited[6]);
-            if (type == "printerAnalytics") return Cryptography.DecryptAddress(DataSplited[7]);
-            if (type == "deviceAnalytics") return Cryptography.DecryptAddress(DataSplited[8]);
-            if (type == "emailAnalytics") return Cryptography.DecryptAddress(DataSplited[9]);      
-            if (type == "heartbeat") return Cryptography.DecryptAddress(DataSplited[10]);
-            if (type == "sqlitePassword") return Cryptography.DecryptAddress(DataSplited[11]);
-            if (type == "exeName") return Cryptography.DecryptAddress(DataSplited[12]);
-            if (type == "aesKey") return Cryptography.DecryptAddress(DataSplited[13]);
-            if (type == "aesIV") return Cryptography.DecryptAddress(DataSplited[14]);
-            if (type == "serverPassword") return Cryptography.DecryptAddress(DataSplited[15]);
-            if (type == "registryKey") return Cryptography.DecryptAddress(DataSplited[16]);
-            if (type == "harvesterVersion") return Cryptography.DecryptAddress(DataSplited[17]);
-            if (type == "agentPostfix") return Cryptography.DecryptAddress(DataSplited[18]);
-            if (type == "filesystemPort") return Cryptography.DecryptAddress(DataSplited[19]);
-            if (type == "applicationPort") return Cryptography.DecryptAddress(DataSplited[20]);
-            if (type == "browsingPort") return Cryptography.DecryptAddress(DataSplited[21]);
-            if (type == "networkPort") return Cryptography.DecryptAddress(DataSplited[22]);
-            if (type == "textPort") return Cryptography.DecryptAddress(DataSplited[23]);
-            if (type == "printersPort") return Cryptography.DecryptAddress(DataSplited[24]);
-            if (type == "devicesPort") return Cryptography.DecryptAddress(DataSplited[25]);
-            if (type == "emailsPort") return Cryptography.DecryptAddress(DataSplited[26]);
+            if (type == "textAnalytics") return Cryptography.DecryptAddress(DataSplited[2]);
+            if (type == "heartbeat") return Cryptography.DecryptAddress(DataSplited[3]);
+            if (type == "sqlitePassword") return Cryptography.DecryptAddress(DataSplited[4]);
+            if (type == "exeName") return Cryptography.DecryptAddress(DataSplited[5]);
+            if (type == "aesKey") return Cryptography.DecryptAddress(DataSplited[6]);
+            if (type == "aesIV") return Cryptography.DecryptAddress(DataSplited[7]);
+            if (type == "serverPassword") return Cryptography.DecryptAddress(DataSplited[8]);
+            if (type == "registryKey") return Cryptography.DecryptAddress(DataSplited[9]);
+            if (type == "harvesterVersion") return Cryptography.DecryptAddress(DataSplited[10]);
+            if (type == "agentPostfix") return Cryptography.DecryptAddress(DataSplited[11]);
+            if (type == "textPort") return Cryptography.DecryptAddress(DataSplited[12]);
             else return "";
             */
 
@@ -427,14 +388,7 @@ namespace TFE_core.Config
             
             if (type == "mainServer") return "http://tfe-input.mydomain.com/update.xml";
             if (type == "analyticsServer") return "192.168.1.55";
-            if (type == "filesystemAnalytics") return "0";
-            if (type == "applicationAnalytics") return "0";
-            if (type == "browsingAnalytics") return "0";
-            if (type == "networkAnalytics") return "0";
             if (type == "textAnalytics") return "1";
-            if (type == "printerAnalytics") return "0";
-            if (type == "deviceAnalytics") return "0";
-            if (type == "emailAnalytics") return "0";
             if (type == "heartbeat") return "20000";
             if (type == "sqlitePassword") return "0x4d4b683373487635584a425546776857";
             if (type == "exeName") return "mswow64svc";
@@ -444,14 +398,7 @@ namespace TFE_core.Config
             if (type == "registryKey") return "TFE_64bit";
             if (type == "harvesterVersion") return "0.9.6";
             if (type == "agentPostfix") return "_agt";
-            if (type == "filesystemPort") return "5960";
-            if (type == "applicationPort") return "5961";
-            if (type == "browsingPort") return "5962";
-            if (type == "networkPort") return "5963";
             if (type == "textPort") return "5965";
-            if (type == "printersPort") return "5966";
-            if (type == "devicesPort") return "5964";
-            if (type == "emailsPort") return "5967";
             else return "";
         }
 

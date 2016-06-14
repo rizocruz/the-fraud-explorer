@@ -89,20 +89,5 @@ namespace TFE_core.Crypto
         }
 
         #endregion
-
-        /// <summary>
-        /// Base64 Encode
-        /// </summary>
-
-        #region Encode to Base64
-
-        public static string EncodeTo64(string toEncode)
-        {
-            byte[] toEncodeAsBytes = System.Text.ASCIIEncoding.ASCII.GetBytes(toEncode);
-            string returnValue = System.Convert.ToBase64String(toEncodeAsBytes);
-            return returnValue;
-        }
-
-        #endregion
     }
 }

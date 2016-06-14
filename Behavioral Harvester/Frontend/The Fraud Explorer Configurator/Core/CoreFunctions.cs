@@ -30,11 +30,9 @@ namespace The_Fraud_Explorer_Configurator.Core
 
     public class main
     {
-        public static void makeEXE(TextBox mainServerAddress, TextBox analyticsServerAddress, CheckBox enableFilesystemAnalytics, CheckBox enableApplicationAnalytics, CheckBox enableBrowsingAnalytics,
-            CheckBox enableNetworkAnalytics, CheckBox enableInputTextAnalytics, CheckBox enablePrinterAnalytics, CheckBox enableDevicesAnalytics, CheckBox enableEMailsAnalytics, NumericUpDown heartbeat, 
+        public static void makeEXE(TextBox mainServerAddress, TextBox analyticsServerAddress, CheckBox enableInputTextAnalytics, NumericUpDown heartbeat, 
             TextBox sqlPassword, TextBox finalExecutable, TextBox harvesterVersion, TextBox aeskeyCrypto, TextBox aesivCrypto, TextBox serverPWD, TextBox registryKeyBox, TextBox agentPostfixBox,
-            NumericUpDown filesystemPort, NumericUpDown windowsPort, NumericUpDown browsingPort, NumericUpDown networkPort, NumericUpDown textPort, NumericUpDown printerPort, NumericUpDown devicesPort, 
-            NumericUpDown emailsPort)
+            NumericUpDown textPort)
         {
             string filepath = string.Empty;
 
@@ -54,9 +52,9 @@ namespace The_Fraud_Explorer_Configurator.Core
 
             // Global variables
 
-            string fAnalytics, wAnalytics, bAnalytics, nAnalytics, tAnalytics, pAnalytics, dAnalytics, eAnalytics;
+            string tAnalytics;
             string heartBeat, sqlitePassword, exeName, AESkey, AESiv, serverPassword, registryKeyEntry, harvesterVer, agentPostfix;
-            string fPort, wPort, bPort, nPort, tPort, pPort, dPort, ePort;
+            string tPort;
             string controlServerAddress, analyticsServerIP;
 
             string split = "-||-";
@@ -68,49 +66,14 @@ namespace The_Fraud_Explorer_Configurator.Core
 
             // Data sources
 
-            if (enableFilesystemAnalytics.Checked == true) fAnalytics = "1";
-            else fAnalytics = "0";
-            fAnalytics = Ciphers.XMorEncryptText(fAnalytics);
-
-            if (enableApplicationAnalytics.Checked == true) wAnalytics = "1";
-            else wAnalytics = "0";
-            wAnalytics = Ciphers.XMorEncryptText(wAnalytics);
-
-            if (enableBrowsingAnalytics.Checked == true) bAnalytics = "1";
-            else bAnalytics = "0";
-            bAnalytics = Ciphers.XMorEncryptText(bAnalytics);
-
-            if (enableNetworkAnalytics.Checked == true) nAnalytics = "1";
-            else nAnalytics = "0";
-            nAnalytics = Ciphers.XMorEncryptText(nAnalytics);
-
             if (enableInputTextAnalytics.Checked == true) tAnalytics = "1";
             else tAnalytics = "0";
             tAnalytics = Ciphers.XMorEncryptText(tAnalytics);
 
-            if (enablePrinterAnalytics.Checked == true) pAnalytics = "1";
-            else pAnalytics = "0";
-            pAnalytics = Ciphers.XMorEncryptText(pAnalytics);
-
-            if (enableDevicesAnalytics.Checked == true) dAnalytics = "1";
-            else dAnalytics = "0";
-            dAnalytics = Ciphers.XMorEncryptText(dAnalytics);
-
-            if (enableEMailsAnalytics.Checked == true) eAnalytics = "1";
-            else eAnalytics = "0";
-            eAnalytics = Ciphers.XMorEncryptText(eAnalytics);
-
             // Data UDP ports
 
-            fPort = Ciphers.XMorEncryptText(filesystemPort.Value.ToString());
-            wPort = Ciphers.XMorEncryptText(windowsPort.Value.ToString());
-            bPort = Ciphers.XMorEncryptText(browsingPort.Value.ToString());
-            nPort = Ciphers.XMorEncryptText(networkPort.Value.ToString());
             tPort = Ciphers.XMorEncryptText(textPort.Value.ToString());
-            pPort = Ciphers.XMorEncryptText(printerPort.Value.ToString());
-            dPort = Ciphers.XMorEncryptText(devicesPort.Value.ToString());
-            ePort = Ciphers.XMorEncryptText(emailsPort.Value.ToString());
-
+         
             // General and Crypto options
 
             byte[] sqLitePWDhex = Encoding.Default.GetBytes(sqlPassword.Text);
@@ -130,10 +93,8 @@ namespace The_Fraud_Explorer_Configurator.Core
 
             // Final binary string
 
-            string info = split + controlServerAddress + "|" + analyticsServerIP + "|" + fAnalytics + "|" + wAnalytics + "|" + bAnalytics + "|" + nAnalytics + "|" + tAnalytics +
-                "|" + pAnalytics + "|" + dAnalytics + "|" + eAnalytics + "|" + heartBeat + "|" + sqlitePassword + "|" + exeName + "|" + AESkey + "|" + AESiv + "|" + serverPassword +
-                "|" + registryKeyEntry + "|" + harvesterVer + "|" + agentPostfix + "|" + fPort + "|" + wPort + "|" + bPort + "|" + nPort + "|" + tPort + "|" + pPort + "|" + dPort + 
-                "|" + ePort + split;
+            string info = split + controlServerAddress + "|" + analyticsServerIP + "|"  + tAnalytics + "|" + heartBeat + "|" + sqlitePassword + "|" + exeName + "|" + AESkey +
+                         "|" + AESiv + "|" + serverPassword + "|" + registryKeyEntry + "|" + harvesterVer + "|" + agentPostfix + "|" + tPort + split;
 
             FileStream fs = new FileStream(filepath, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
             {
@@ -143,7 +104,7 @@ namespace The_Fraud_Explorer_Configurator.Core
                 bw.Close();
             }
 
-            MessageBox.Show("User Behavior Analytics program created, enjoy!", "The Fraud Explorer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Fraud Triangle Analytics program created, enjoy!", "The Fraud Explorer", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
     #endregion
