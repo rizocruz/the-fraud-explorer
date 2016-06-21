@@ -9,7 +9,7 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-31 15:12:41 -0500 (Wed, 31 Jun 2016)
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
  * Revision: v0.9.6-beta
  *
  * Description: Code for agent deletion
@@ -39,7 +39,7 @@ $agent_dec=base64_decode(base64_decode($agent_enc));
 error_reporting(0);
 $maq=str_replace(array("."),array("_"),$agent_dec);
 
-# Delete agent tables
+/* Delete agent tables */
  
 mysql_query(sprintf("DROP TABLE t_%s",$maq));
 mysql_query(sprintf("DELETE FROM t_agents WHERE agent='%s'",$maq));

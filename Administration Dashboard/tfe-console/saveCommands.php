@@ -9,7 +9,7 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-31 15:12:41 -0500 (Wed, 31 Jun 2016)
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
  * Revision: v0.9.6-beta
  *
  * Description: Code for save commands
@@ -52,7 +52,7 @@ $agent = filter($_GET['agent']);
 $_SESSION['id_command'] = $id;
 $_SESSION['agent'] = $agent;
 
-// Encrypt variables
+/* Encrypt variables */
 
 $agent = encRijndael($agent);
 

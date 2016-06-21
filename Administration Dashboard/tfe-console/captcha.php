@@ -9,7 +9,7 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-31 15:12:41 -0500 (Wed, 31 Jun 2016)
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
  * Revision: v0.9.6-beta 
  *
  * Description: Code for captcha on login 
@@ -45,6 +45,8 @@ $random=substr(str_replace("0","",str_replace("O","",strtoupper(md5(rand(9999,99
 
 $ttf = "fonts/gunplay.ttf";
 imagefttext($image,22,rand(-10,15),12,37,$RandomColorInverted,$ttf,$random);
+
+/* Insert in database the actal captcha value */
 
 error_reporting(0);
 include "inc/open-db-connection.php";

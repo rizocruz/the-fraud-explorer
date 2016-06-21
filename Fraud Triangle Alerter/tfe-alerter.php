@@ -28,10 +28,29 @@
  $GLOBALS['matchesGlobalCount'] = 0;
  $startTime = microtime(true);
  $ESindex = $configFile['es_words_index'];
- $AgentParams = ['index' => $ESindex, 'type' => 'TextEvent', 'body' => ['size' => 0, 'aggs' => ['agents' => ['terms' => [ 'field' => 'agentId.raw' ]]]]];
+
+ $AgentParams = [
+ 'index' => $ESindex, 
+ 'type' => 'TextEvent', 
+ 'body' => [
+ 	'size' => 0, 
+  	'aggs' => [
+		'agents' => [
+			'terms' => [ 'field' => 'agentId.raw' ]
+		]
+	]
+ ]];
+
  $allAgentList = $client->search($AgentParams);
  $fraudTriangleTerms = array('rationalization'=>'0 1 0 0','opportunity'=>'0 0 1 0','pressure'=>'1 0 0 0','custom'=>'0 0 0 1');
  $jsonFT = json_decode(file_get_contents($configFile['fta_text_rule_spanish']), true);
+
+ /* Current time */
+
+ $now = DateTime::createFromFormat('U.u', microtime(true));
+ $time = $now->format("Y-m-d\TH:i:s.u");
+ $time = substr($time, 0, -3);
+ $GLOBALS['currentTime'] = (string)$time."Z"; 
 
  /* Unique agentID List */
 
@@ -46,13 +65,13 @@
 
  	$endDate = extractEndDateFromAlerter($configFile['es_alerter_status_index'], "AlertStatus");
 	$GLOBALS['arrayPosition'] = 0;
-        getArrayData($endDate, "@timestamp", 'lastAlertDate');
+        getArrayData($endDate, "endTime", 'lastAlertDate');
 
 	logToFile($configFile['log_file'], "[INFO] - Checking events from last date: ".$GLOBALS['lastAlertDate'][0]."  ...");
 	
 	foreach($GLOBALS['agentList'] as $agentID)
         {  
-		$typedWords = extractTypedWordsFromAgentIDWithDate($agentID, $ESindex, $GLOBALS['lastAlertDate'][0], "now");
+		$typedWords = extractTypedWordsFromAgentIDWithDate($agentID, $ESindex, $GLOBALS['lastAlertDate'][0], $GLOBALS['currentTime']);
 
 		if ($typedWords['hits']['total'] == 0) continue;  
 		else
@@ -82,14 +101,15 @@
 
  /* Alerter status */
 
- $endTime = date("Y-m-d")."T".date("H:i:s").".000Z";
+ $endTime = $GLOBALS['currentTime'];
  $sockAlerter = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
  $timeTaken = microtime(true) - $startTime;
- $msgData = $endTime." TextEvent ".$timeTaken." ".$GLOBALS['matchesGlobalCount'];
+ $timeTaken = floor($timeTaken * 100) / 100;
+ $msgData = $endTime." - ".$GLOBALS['lastAlertDate'][0]." TextEvent ".$timeTaken." ".$GLOBALS['matchesGlobalCount'];
  $lenData = strlen($msgData);
  socket_sendto($sockAlerter, $msgData, $lenData, 0, $configFile['net_logstash_host'], $configFile['net_logstash_alerter_status_port']);
  socket_close($sockAlerter);
 
- logToFile($configFile['log_file'], "[INFO] - Sending alert-status to index, EndTime[".$endTime."] TimeTaken[".$timeTaken."] Triggered[".$GLOBALS['matchesGlobalCount']."]");
+ logToFile($configFile['log_file'], "[INFO] - Sending alert-status to index, StartTime[".$GLOBALS['lastAlertDate'][0]."], EndTime[".$endTime."] TimeTaken[".$timeTaken."] Triggered[".$GLOBALS['matchesGlobalCount']."]");
 
 ?>

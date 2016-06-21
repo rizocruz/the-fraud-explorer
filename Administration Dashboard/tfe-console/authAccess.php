@@ -9,7 +9,7 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-31 15:12:41 -0500 (Wed, 31 Jun 2016)
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
  * Revision: v0.9.6-beta
  *
  * Description: Code for download and view authorization
@@ -33,6 +33,8 @@ if(empty($_SESSION['connected']))
 }
 else
 {
+	/* Grant access to this type of file depending of the session status */
+
  	if($ext=="txt")
  	{
   		header('Content-Type: text/'.$contentType);
@@ -53,20 +55,6 @@ else
   		flush();
   		readfile($_REQUEST['file']);
  	 	exit();
- 	}
- 	else if($ext=="wav")
- 	{
-		header('Content-Description: File Transfer');
-  		header("Content-Type: audio/x-wav");
-		header("Content-Transfer-Encoding: binary"); 
-		header("Content-Length: " .filesize($file));
-		header('Content-Disposition: attachment; filename="'.$file . '"; ');
-    		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-    		header('Pragma: public');
-		header('Expires: 0');
-  		flush();
-  		readfile($file);
-  		exit();
  	}
  	else
  	{

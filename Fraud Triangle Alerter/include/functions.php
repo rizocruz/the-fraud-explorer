@@ -37,7 +37,19 @@
 
  function extractTypedWordsFromAgentID($agentID, $index)
  {
-        $specificAgentTypedWordsParams = ['index' => $index,'type' => 'TextEvent','body' =>['size' => 10000,'query' => ['term' => [ 'agentId.raw' => $agentID ]],'sort' => ['@timestamp' => [ 'order' => 'asc' ]]]];
+        $specificAgentTypedWordsParams = [
+	'index' => $index,
+	'type' => 'TextEvent',
+	'body' => [
+		'size' => 10000,
+		'query' => [
+			'term' => [ 'agentId.raw' => $agentID ]
+		],
+		'sort' => [
+			'@timestamp' => [ 'order' => 'asc' ]
+		]
+	]];
+
         $client = Elasticsearch\ClientBuilder::create()->build();
         $agentIdTypedWords = $client->search($specificAgentTypedWordsParams);
 
@@ -48,9 +60,34 @@
 
  function extractTypedWordsFromAgentIDWithDate($agentID, $index, $from, $to)
  {
-	$specificAgentTypedWordsParams = ['index' => $index, 'type' => 'TextEvent','body' =>['size' => 10000,'query' => ['filtered' => ['query' => ['term' => [ 'agentId.raw' => $agentID ]],'filter' => ['range' => ['@timestamp' => [ 'from' => $from, 'to' => $to ]]]]],'sort' => ['@timestamp' => [ 'order' => 'asc' ]]]];
+
+	echo "AgentID: ".$agentID." from: ".$from." to: ".$to."\n";
+	$specificAgentTypedWordsParams = [
+	'index' => $index, 
+	'type' => 'TextEvent',
+	'body' =>[
+		'size' => 10000,
+		'query' => [
+			'filtered' => [
+				'query' => [
+					'term' => [ 'agentId.raw' => $agentID ]
+				],
+				'filter' => [
+					'range' => [
+						'@timestamp' => [ 'gte' => $from, 'lte' => $to ]
+					]
+				]
+			]
+		],
+		'sort' => [
+			'@timestamp' => [ 'order' => 'asc' ]
+		]
+	]];
+
         $client = Elasticsearch\ClientBuilder::create()->build();
         $agentIdTypedWords = $client->search($specificAgentTypedWordsParams);
+
+	var_dump($agentIdTypedWords);
 
         return $agentIdTypedWords;
  }
@@ -68,7 +105,19 @@
 
  function extractEndDateFromAlerter($indexName, $indexType)
  {
-	$endDateParams = ['index' => $indexName,'type' => $indexType,'body' =>['size' => 1,'query' => ['term' => [ 'host' => '127.0.0.1' ]],'sort' => ['@timestamp' => [ 'order' => 'desc' ]]]];
+	$endDateParams = [
+	'index' => $indexName,
+	'type' => $indexType,
+	'body' =>[
+		'size' => 1,
+		'query' => [
+			'term' => [ 'host' => '127.0.0.1' ]
+		],
+		'sort' => [
+			'endTime' => [ 'order' => 'desc', 'ignore_unmapped' => 'true' ]
+		]
+	]];
+
 	$client = Elasticsearch\ClientBuilder::create()->build();
         $lastAlertTime = $client->search($endDateParams);
 
@@ -85,7 +134,10 @@
                 {
                 	if (preg_match_all($termPhrase, $stringOfWords, $matches)) 
                         {
-                        	$matchTime = date("Y-m-d")."T".date("H:i:s").".000Z";
+				$now = DateTime::createFromFormat('U.u', microtime(true));
+				$end = $now->format("Y-m-d\TH:i:s.u");
+ 				$end = substr($end, 0, -3);
+ 				$matchTime = (string)$end."Z";
                                 $msgData = $matchTime." ".$agentID." TextEvent - ".$term." w: ".str_replace('/', '', $termPhrase)." s: ".$value." m: ".count($matches[0]);
                                 $lenData = strlen($msgData);
                                 socket_sendto($sockLT, $msgData, $lenData, 0, $configFile['net_logstash_host'], $configFile['net_logstash_alerter_port']);       

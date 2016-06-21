@@ -9,20 +9,21 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-31 15:12:41 -0500 (Wed, 31 Jun 2016)
- * Revision: v0.9.6-beta
+ * Date: 2016-05-31 15:12:41 -0500 (Wed, 31 May 2016)
+ * Revision: v0.9.5-beta
  *
  * Description: Code for refresh agents table dinamically (dashboard) using AJAX
  */
 
-include "inc/check-access.php";
-
-?>
-
-<?php
-
 session_start();
+
+include "inc/check-access.php";
+require 'vendor/autoload.php';
 include "inc/global-vars.php";
+include "inc/open-db-connection.php";
+include "inc/agent_methods.php";
+include "inc/check_perm.php";
+include "inc/elasticsearch.php";
 
 if(empty($_SESSION['connected']))
 {
@@ -30,46 +31,12 @@ if(empty($_SESSION['connected']))
  	exit;
 }
 
-function queryOrDie($query)
-{
- 	$query = mysql_query($query);
- 	if (! $query) exit(mysql_error());
- 	return $query;
-}
-
-function isConnected($update_date, $now)
-{ 
- 	$date_1 = strtotime($update_date); 
- 	$date_2 = strtotime($now);
- 	$dife= $date_2 - $date_1;
- 	$minutesstr = ($dife/60); 
- 	$minutes = (INT)($minutesstr); 
- 	if ($minutes<0) $minutes = $minutes * -1;
- 	return $minutes<1; 
-} 
-
-function getImgSist($system)
-{ 
- 	if($system=='5.1') return '/images/tag.svg';
- 	if($system=='6.1') return '/images/tag.svg'; 
- 	else return '/images/tag.svg'; 
-} 
-
-function getTextSist($system)
-{ 
- 	if($system=='5.1') return ' WiXP';
- 	if($system=='6.1') return ' Win7'; 
- 	if($system=='6.2' || $system=='6.3') return ' Win8';
-	if($system=='10.0') return ' Wi10';
- 	else return ' WinV'; 
-} 
-
-include "inc/open-db-connection.php";
 $_SESSION['id_uniq_command']=null;
 
-// Order the dashboard agent list
+/* Order the dashboard agent list */
 
 $order = mysql_query("SELECT agent,heartbeat, now() FROM t_agents");
+
 if ($row = mysql_fetch_array($order))
 {
 	do
@@ -88,9 +55,15 @@ if ($row = mysql_fetch_array($order))
 	while ($row = mysql_fetch_array($order));
 }
 
-// Show the agent list
+/* Elasticsearch querys for fraud triangle counts and score */
 
-include "inc/check_perm.php";
+$client = Elasticsearch\ClientBuilder::create()->build();
+$configFile = parse_ini_file("config.ini");
+$ESindex = $configFile['es_words_index'];
+$ESalerterIndex = $configFile['es_alerter_index'];
+$fraudTriangleTerms = array('r'=>'rationalization','o'=>'opportunity','p'=>'pressure','c'=>'custom');
+
+/* Show main table and telemetry with the agent list */
 
 if ($userConnected != 'admin') $result_a = mysql_query("SELECT agent,heartbeat, now(), system, version, status, name, owner, gender FROM t_agents WHERE owner='".$userScope."' ORDER BY FIELD(status, 'active','inactive'), agent ASC");
 else $result_a = mysql_query("SELECT agent,heartbeat, now(), system, version, status, name, owner, gender FROM t_agents ORDER BY FIELD(status, 'active','inactive'), agent ASC");
@@ -100,11 +73,9 @@ $count_offline = mysql_fetch_assoc(mysql_query("SELECT count(*) AS total FROM t_
 
 if ($row_a = mysql_fetch_array($result_a))
 {
-
- 	// Paint search and telemtry data
+ 	/* Telemetry */ 
 
  	echo '<div class="content">';
-
 	echo '<center><div align="center" width="100%" style="width: 1316px; background:#e8eaeb; border:1px solid #d3d3d3; -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);"><p>';
 	echo '<font face="Verdana" size="2px">';
 	echo '<label for="search">';
@@ -118,19 +89,24 @@ if ($row_a = mysql_fetch_array($result_a))
 	echo '<br><br></font>';
 	echo '</p></div></center><br>';
 
-	// Paint main table
+	/* Main Table */
 
 	echo '<table summary="Dashboard table" id="tblData" class="target">';
- 	echo '<thead><tr><th class="osth"><b>OS</b></th><th class="agentth"><b>AGENT</b></th><th class="compth"><b>GROUP</b></th>
-	<th class="verth"><b>VER</b></th><th class="stateth"><b>STT</b></th><th class="lastth"><b>LAST</b></th>
+ 	echo '<thead><tr><th class="osth"><b>OS</b></th><th class="agentth"><b>AGENT</b></th>
+	<th class="compth"><b>GROUP</b></th><th class="verth"><b>VER</b></th><th class="stateth"><b>STT</b></th><th class="lastth"><b>LAST</b></th>
+	<th class="countpth"><b>P</b></th><th class="countoth"><b>O</b></th><th class="countrth"><b>R</b></th><th class="countcth"><b>C</b></th><th class="scoreth"><b>SCORE</b></th>
 	<th class="specialth"><b>CMD</b></th><th class="specialth"><b>DEL</b></th><th class="specialth"><b>SET</b></th></tr></thead><tbody>';
 
  	do 
  	{
   		$agent_enc=base64_encode(base64_encode($row_a["agent"]));
 
+		/* Operating system */
+
  	 	echo '<tr>';
   		echo '<td class="ostd"><img src="'. getImgSist($row_a["system"]) .'"align="center"/><br>'. getTextSist($row_a["system"]) .'</td>';
+
+		/* Gender identification */
 
 		if ($row_a["name"] == NULL) 
 		{
@@ -147,10 +123,16 @@ if ($row_a = mysql_fetch_array($result_a))
 			else echo '<img src="images/male-agent.gif" style="vertical-align:middle;" width="40px" height="40px">&nbsp;&nbsp;' . $row_a["name"] . '</td>';
 		}
 
+		/* Company, department or group */
+
 		if ($row_a["owner"] == NULL) echo '<td class="comptd">NYET</td>';
                 else echo '<td class="comptd">' . $row_a["owner"] . "</td>";
 
+		/* Agent software version */
+
  	 	echo '<td class="vertd">' .$row_a["version"] .'</td>';
+
+		/* Agent status */
 
   		if($row_a["status"] == "active") 
 		{ 
@@ -161,11 +143,68 @@ if ($row_a = mysql_fetch_array($result_a))
 			echo '<td class="statetd"><img src="images/agentOffline.svg"/></td>'; 
 		}
 
+		/* Last connection to the server */
+
   		echo '<td class="lasttd">'.str_replace(array("-"),array("/"),$row_a["heartbeat"]).'&nbsp;</td>';
   		$result_b=mysql_query("SELECT command FROM t_".str_replace(array("."),array("_"),$row_a["agent"])." order by date desc limit 1");
   		$row_b = mysql_fetch_array($result_b);
 
-  		if(isConnected($row_a["heartbeat"], $row_a[2]) && $userPermissions != "view")
+		echo '<div id="fraudCounterHolder"></div>';
+
+		/* Fraud triangle counts and score */
+		
+		$matchesRationalization = countFraudTriangleMatches($row_a["agent"], $fraudTriangleTerms['r'], $configFile['es_alerter_index']);
+                $matchesOpportunity = countFraudTriangleMatches($row_a["agent"], $fraudTriangleTerms['o'], $configFile['es_alerter_index']);
+                $matchesPressure = countFraudTriangleMatches($row_a["agent"], $fraudTriangleTerms['p'], $configFile['es_alerter_index']);
+                $matchesCustom = countFraudTriangleMatches($row_a["agent"], $fraudTriangleTerms['c'], $configFile['es_alerter_index']);
+
+		if ($matchesRationalization['hits']['total'] != 0)
+		{
+			$GLOBALS['arrayPosition'] = 0;
+			getArrayData($matchesRationalization, "matchNumber", 'numberOfRMatches');
+        		$countRationalization = array_sum($GLOBALS['numberOfRMatches']);
+		} 
+		else $countRationalization = 0;
+
+  	        if ($matchesOpportunity['hits']['total'] != 0) 
+		{
+			$GLOBALS['arrayPosition'] = 0;
+			getArrayData($matchesOpportunity, "matchNumber", 'numberOfOMatches');
+			$countOpportunity = array_sum($GLOBALS['numberOfOMatches']);
+		}
+		else $countOpportunity = 0; 
+
+                if ($matchesPressure['hits']['total'] != 0) 
+		{
+			$GLOBALS['arrayPosition'] = 0;
+			getArrayData($matchesPressure, "matchNumber", 'numberOfPMatches');
+			$countPressure = array_sum($GLOBALS['numberOfPMatches']);
+		}
+		else $countPressure = 0;
+
+		if ($matchesCustom['hits']['total'] != 0) 
+		{
+			$GLOBALS['arrayPosition'] = 0;
+			getArrayData($matchesCustom, "matchNumber", 'numberOfCMatches');
+			$countCustom = array_sum($GLOBALS['numberOfCMatches']);
+		}
+		else $countCustom = 0;
+		
+		echo '<td class="countptd">'.$countPressure.'</td>';
+		echo '<td class="countotd">'.$countOpportunity.'</td>';
+		echo '<td class="countrtd">'.$countRationalization.'</td>';
+		echo '<td class="countctd">'.$countCustom.'</td>';
+		$score=($countPressure+$countOpportunity+$countRationalization+$countCustom)/4;
+		echo '<td class="scoretd"><b>'.$score.'</b></td>';  
+
+		unset($GLOBALS['numberOfRMatches']);
+		unset($GLOBALS['numberOfOMatches']);
+		unset($GLOBALS['numberOfPMatches']);
+		unset($GLOBALS['numberOfCMatches']);
+
+		/* Agent selection for command retrieval */
+
+		if(isConnected($row_a["heartbeat"], $row_a[2]) && $userPermissions != "view")
   		{
 			if(isset($_SESSION['agentchecked']))
                         {
@@ -183,6 +222,8 @@ if ($row_a = mysql_fetch_array($result_a))
 			else echo '<td class="specialtd"><img src="images/cmd.svg" onmouseover="this.src=\'images/cmd-mo.svg\'" onmouseout="this.src=\'images/cmd.svg\'" alt="Agent down" title="Agent down" /></td>'; 
  		}
 
+		/* Option for delete the agent */
+
 		if($userPermissions != "view")
 		{
   			echo '<td class="specialtd"><a data-href="deleteAgent?agent='.$agent_enc.'" data-toggle="modal" data-target="#confirm-delete" href="#"><img src="images/delete-button.svg" onmouseover="this.src=\'images/delete-button-mo.svg\'" onmouseout="this.src=\'images/delete-button.svg\'" alt="" title=""/></a></td>';	
@@ -191,6 +232,8 @@ if ($row_a = mysql_fetch_array($result_a))
 		{
 			echo '<td class="specialtd"><img src="images/delete-button.svg" onmouseover="this.src=\'images/delete-button-mo.svg\'" onmouseout="this.src=\'images/delete-button.svg\'" alt="" title=""/></a></td>';
 		}
+
+		/* Agent setup option */
 
 		if($userPermissions != "view")
                 {

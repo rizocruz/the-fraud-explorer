@@ -9,13 +9,11 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-31 15:12:41 -0500 (Wed, 31 Jun 2016)
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
  * Revision: v0.9.6-beta
  *
  * Description: Mail events
  */
-
-// Code for mail events
 
   $to      = 'smtp@mydomain.com';
   $subject = 'TFE Event: AGT connected: '. $macAgent;

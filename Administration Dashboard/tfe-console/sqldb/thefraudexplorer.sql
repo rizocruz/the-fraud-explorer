@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `t_crypt` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 INSERT INTO `t_crypt` (`key`, `iv`, `password`) VALUES
-('1uBu8ycVugDIJz61', '1uBu8ycVugDIJz61', 'WCCE207');
+('0uBu8ycVugDIJz60', '0uBu8ycVugDIJz60', 'KGBz77');
 
 CREATE TABLE IF NOT EXISTS `t_agents` (
   `agent` varchar(200) DEFAULT NULL,

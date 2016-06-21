@@ -2,23 +2,35 @@
  "dictionary": {
 
   "opportunity": {
-   "00001" : "/conflict* de interes/",
-   "00002" : "/sospechos*/",
-   "00003" : "/ganancia*/",
-   "00004" : "/(no)\\s?(es)?\\s?(el)?\\s?(adecuado)/"
+   "conflicto, conflictivo" : "/conflict*/",
+   "sospechoso, sospecha, sospechando" : "/sospech*/",
+   "alegue, alegato, alegaron" : "/aleg[au]*/",
+   "conspirar, conspiracion, conspirara, conspirador" : "/conspir*/",   
+   "crimen, criminal" : "/crim[ei]*/",
+   "escapar, escanpando, escapare" : "/escapa*/",
+   "me largo, se largo, se largaron" : "/(me|se|nos)\\s(larg*)/",
+   "me vuelo, nos volamos, se volaron" : "/(me|se|nos)\\s(vol[ao]*)/",
+   "planearlo, planeado" : "/planea*/",
+   "ganancia, ganar, gana, ganaron" : "/gana*/",
+   "inadecuado" : "/inadecuad*/",
+   "insuficiente, insuficientes" : "/insuficiente*/",
+   "investigar, investigaron, investigacion, investigado" : "/investiga*/",
+   "le compete, no compete, no le compete, no le competia, no nos compete, no nos competia" : "/(no|le*)\\s?(.*)?\\s?(compete*)/",
+   "juntemonos, juntos, juntas" : "/junt(emo|[oa])*/", 
+   "subsecuente" : "/subsecuente*/",
+   "consecuente, consecuencia" : "/consecuen*/",
+   "compensar, retribuir, retribuye" : "/(compensar*|retribu*)/", 
+   "supervision, auditoria, revision, revisaran" : "/(supervi*|audit[ao]r*|revis(ion|aran)*)/" 
   },
   
   "pressure": {
-   "00001" : "/cuota inicial/"
   },
 
   "rationalization": {
-   "phrase" : "/punta de anca/",
-   "phrase" : "/siento comod*/"
   },
 
   "custom": {
-   "00001" : "/aberracion*/",
+   "aberracion, aberrante" : "/aberra[cn]*/",
    "00002" : "/abomina*/",
    "00003" : "/abrasador*/",
    "00004" : "/abruma*/",
@@ -149,14 +161,12 @@
    "00129" : "/confiscar*/",
    "00130" : "/confrontacion*/",
    "00131" : "/confundid*/",
-   "00132" : "/conspira*/",
    "00133" : "/corrillo*/",
    "00134" : "/contagi*/",
    "00135" : "/contamina*/",
    "00136" : "/contrad*/",
    "00137" : "/controversia*/",
    "00138" : "/corrupcion/",
-   "00139" : "/crimen*/",
    "00140" : "/critic*/",
    "00141" : "/cronic*/",
    "00142" : "/crucifica*/",
@@ -649,7 +659,6 @@
    "00629" : "/temible*/",
    "00630" : "/temperamental*/",
    "00631" : "/tension*/",
-   "00632" : "/tens*/",
    "00633" : "/terrible*/",
    "00634" : "/terror*/",
    "00635" : "/testarud*/",
@@ -680,7 +689,7 @@
    "00660" : "/vengat*/",
    "00661" : "/verdugo*/",
    "00662" : "/vergonzos*/",
-   "00663" : "/verguenz*/",
+   "00663" : "/vergon*/",
    "00664" : "/viciad*/",
    "00665" : "/vicio*/",
    "00666" : "/victima*/",
@@ -699,7 +708,6 @@
    "00679" : "/cinismo/",
    "00680" : "/complicidad*/",
    "00681" : "/confusion*/",
-   "00682" : "/criminal*/",
    "00683" : "/delirando/",
    "00684" : "/derrotista*/",
    "00685" : "/desaliento*/",

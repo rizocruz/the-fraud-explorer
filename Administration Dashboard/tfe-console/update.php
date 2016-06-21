@@ -9,7 +9,7 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-31 15:12:41 -0500 (Wed, 31 Jun 2016)
+ * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
  * Revision: v0.9.6-beta
  *
  * Description: Code for update machine status
@@ -40,7 +40,7 @@ $agent=$macAgent;
 $keyquery = mysql_query("SELECT password FROM t_crypt");
 $keypass = mysql_fetch_array($keyquery);
 
-// If agent has the correct key (password), then connect
+/* If agent has the correct key (password), then connect */
 
 if ($key == $keypass[0])
 {
@@ -62,35 +62,19 @@ if ($key == $keypass[0])
  	{
   		if(strlen($macAgent)<50)
   		{
- 
-   			// Send message alert for first agent connection
+   			/* Send message alert for first agent connection */
 
    			include $documentRoot."inc/mail-event.php";
    			mail($to, $subject, $message, $headers);
 
-   			// Heartbeat data
+   			/* Heartbeat data */
 
    			$query="INSERT INTO t_agents (agent, heartbeat, system, version) VALUES ('" . $agent . "', now() ,'" . $os . "','" . $version . "')";
    			queryOrDie($query);
 
-   			// Primary agent table
+   			/* Primary agent table */
 
    			$query="CREATE TABLE t_".$macAgent."(command varchar(50),response varchar(65000),finished boolean,date DATETIME,id_uniq_command int,showed boolean,PRIMARY KEY (date))";
-   			queryOrDie($query);
-
-   			// Table for the images
-
-   			$query="CREATE TABLE t_images_".$macAgent." (id int unsigned NOT NULL auto_increment, image mediumblob NOT NULL, KEY id (id), date DATETIME)";
-   			queryOrDie($query);
-
- 		  	// Table for the cam images
-
-   			$query="CREATE TABLE t_images_cam_".$macAgent." (id int unsigned NOT NULL auto_increment, image mediumblob NOT NULL, KEY id (id), date DATETIME)";
-   			queryOrDie($query);
-
-   			// Table for calendar connection tracking
-
-   			$query="CREATE TABLE t_calendar_".$macAgent." (id int(11) NOT NULL auto_increment, event_date date NOT NULL, title varchar(250) NOT NULL, description text NOT NULL, PRIMARY KEY (id))";
    			queryOrDie($query);
   		}
  	}
