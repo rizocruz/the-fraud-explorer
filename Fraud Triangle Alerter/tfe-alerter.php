@@ -15,6 +15,13 @@
  * Description: Main Application, Fraud Triangle Analytics Alerting
  */
 
+ /* Current time */
+
+ $now = DateTime::createFromFormat('U.u', microtime(true));
+ $time = $now->format("Y-m-d\TH:i:s.u");
+ $time = substr($time, 0, -3);
+ $GLOBALS['currentTime'] = (string)$time."Z";
+
  /* Load parameters, methods, functions and procedures from external files */
 
  $configFile = parse_ini_file("config.ini");
@@ -44,13 +51,6 @@
  $allAgentList = $client->search($AgentParams);
  $fraudTriangleTerms = array('rationalization'=>'0 1 0 0','opportunity'=>'0 0 1 0','pressure'=>'1 0 0 0','custom'=>'0 0 0 1');
  $jsonFT = json_decode(file_get_contents($configFile['fta_text_rule_spanish']), true);
-
- /* Current time */
-
- $now = DateTime::createFromFormat('U.u', microtime(true));
- $time = $now->format("Y-m-d\TH:i:s.u");
- $time = substr($time, 0, -3);
- $GLOBALS['currentTime'] = (string)$time."Z"; 
 
  /* Unique agentID List */
 
