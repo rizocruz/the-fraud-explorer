@@ -103,7 +103,7 @@ include "inc/elasticsearch.php";
                                 </tr>
                                 <tr>
                                         <td class="table-leyend-point"><span class="point-opportunity-31-60"></span><br>31-60</td>
-                                        <td class="table-leyend-point"><span class="point-opportunity-61-100"></span><br>0-10</td>
+                                        <td class="table-leyend-point"><span class="point-opportunity-61-100"></span><br>61-100</td>
                                 </tr>
 				<tr>
                                         <td class="table-leyend-point"><span class="point-opportunity-101-500"></span><br>101-500</td>
