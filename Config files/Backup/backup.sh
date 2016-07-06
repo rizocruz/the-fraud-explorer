@@ -5,7 +5,7 @@
 TIME=`date +"%b-%d-%y"`
 FILENAME="backup-data-${TIME}.tar.gz"
 TFEDIR="/var/www/html/tfe-console /var/www/html/tfe-input"
-ANALYTICSDIR="/etc/elasticsearch /opt/kibana /etc/nginx /etc/logstash /opt/tfe-alerter"
+ANALYTICSDIR="/etc/elasticsearch /opt/kibana /etc/nginx /etc/logstash"
 SYSFILES="/etc/sysconfig /etc/my.cnf /etc/httpd /etc/php.ini /etc/inittab /backup/bin/backup.sh /etc/motd /etc/postfix /etc/hosts "
 DESDIR="/backup"
 

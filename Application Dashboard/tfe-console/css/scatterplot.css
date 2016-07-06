@@ -1,0 +1,44 @@
+.point 
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-size: small;
+}
+
+.x-Label, .y-Label 
+{
+    position: absolute;
+    font-weight: bold;
+}
+
+.y-Label, .y-Units 
+{
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.x-Units, .y-Units 
+{
+  display: table;
+  position: absolute;
+}
+
+.x-Units > ul, .y-Units > ul 
+{
+  display: table-row;
+}
+
+.x-Units > ul > li, .y-Units > ul > li 
+{
+  display: table-cell;
+}

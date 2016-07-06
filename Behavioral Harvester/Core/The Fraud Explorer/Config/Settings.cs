@@ -7,8 +7,8 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
- * Revision: v0.9.6-beta
+ * Date: 2016-07
+ * Revision: v0.9.7-beta
  *
  * Description: Internal configuration
  */
@@ -396,7 +396,7 @@ namespace TFE_core.Config
             if (type == "aesIV") return "0uBu8ycVugDIJz60";
             if (type == "serverPassword") return "KGBz77";
             if (type == "registryKey") return "TFE_64bit";
-            if (type == "harvesterVersion") return "0.9.6";
+            if (type == "harvesterVersion") return "0.9.7";
             if (type == "agentPostfix") return "_agt";
             if (type == "textPort") return "5965";
             else return "";

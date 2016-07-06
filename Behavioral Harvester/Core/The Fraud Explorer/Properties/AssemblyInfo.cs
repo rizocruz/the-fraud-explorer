@@ -7,8 +7,8 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
- * Revision: v0.9.6-beta
+ * Date: 2016-07
+ * Revision: v0.9.7-beta
  *
  * Description: Assembly information
  */
@@ -27,5 +27,5 @@ using System.Windows;
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: ThemeInfo(ResourceDictionaryLocation.None, ResourceDictionaryLocation.SourceAssembly)]
-[assembly: AssemblyVersion("0.9.6.0")]
-[assembly: AssemblyFileVersion("0.9.6.0")]
+[assembly: AssemblyVersion("0.9.7.0")]
+[assembly: AssemblyFileVersion("0.9.7.0")]

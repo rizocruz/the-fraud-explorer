@@ -7,8 +7,8 @@
  * Licensed under GNU GPL v3
  * http://www.thefraudexplorer.com/License
  *
- * Date: 2016-06-30 15:12:41 -0500 (Wed, 30 Jun 2016)
- * Revision: v0.9.6-beta
+ * Date: 2016-07
+ * Revision: v0.9.7-beta
  *
  * Description: Main window configuration designer
  */
@@ -270,7 +270,7 @@ namespace The_Fraud_Explorer_Configurator
             this.harvesterVersion.Name = "harvesterVersion";
             this.harvesterVersion.Size = new System.Drawing.Size(174, 21);
             this.harvesterVersion.TabIndex = 10;
-            this.harvesterVersion.Text = "0.9.6";
+            this.harvesterVersion.Text = "0.9.7";
             // 
             // harvesterText
             // 
