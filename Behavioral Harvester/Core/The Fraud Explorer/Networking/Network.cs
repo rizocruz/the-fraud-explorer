@@ -186,7 +186,7 @@ namespace TFE_core.Networking
 
         public static string ExtractDomainFromURL(string sURL)
         {
-            Regex rg = new Regex(@"://(?<host>([a-z\d][-a-z\d]*[a-z\d]\.)*[a-z][-a-z\d]+[a-z])");
+            Regex rg = new Regex(@"://(?<host>([a-z\d][-a-z\d]*[a-z\d]\.)*[a-z][-a-z\d]*)");
             if (rg.IsMatch(sURL)) return rg.Match(sURL).Result("${host}");
             else return String.Empty;
         }
