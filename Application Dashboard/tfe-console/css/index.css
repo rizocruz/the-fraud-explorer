@@ -22,15 +22,31 @@ table, caption, tbody, tfoot, thead, tr, th, td
     src: url('../fonts/Open_Sans/OpenSans-Regular.ttf');
 }
 
-body 
+html, body 
 {
+    height: 100%;
     margin:0;
     padding:0;
     color: #555;
     background:#f5f5f5 url(images/simpletable/bg.jpg);
 }
 
-a {color:#666;}
+html 
+{
+    display: table;
+    margin: auto;
+}
+
+body 
+{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+a 
+{
+    color:#666;
+}
         
 #content 
 {
@@ -40,7 +56,7 @@ a {color:#666;}
 table
 {
     overflow:hidden;
-    border:1px solid #d3d3d3;
+    border:1px solid #13923D;
     background:#fefefe;
     width: 500px;
     height: 200px; 
@@ -66,8 +82,7 @@ td
 th 
 {
     padding:25px 12px 25px 12px;
-    text-shadow: 1px 1px 1px #fff; 
-    background: #ededed;
+    background: #13923D;
     font: 16px 'FFont', "Helvetica Neue",Arial, Helvetica, sans-serif;
     text-align: center;
     border:0px solid #d3d3d3;

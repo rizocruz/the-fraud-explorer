@@ -27,7 +27,6 @@
 	</head>
 	<body>
 	
-	<br><br><br>
 	<div align="center">
 		<table>
  			<th>Please enter the following data<br></th>
