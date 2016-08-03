@@ -34,7 +34,7 @@ include "inc/elasticsearch.php";
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>TFE - Chart</title>
+	<title>TFE - Analytics</title>
 	<meta http-equiv="X-Frame-Options" content="deny">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -56,8 +56,8 @@ include "inc/elasticsearch.php";
 
 	<!-- JS functions -->
 
-	<script type="text/javascript" src="js/mainChart.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/mainChart.css"/>
+	<script type="text/javascript" src="js/mainAnalytics.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/mainAnalytics.css"/>
 
 	<!-- Load ScatterPlotChart -->
 

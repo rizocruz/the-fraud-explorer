@@ -21,7 +21,7 @@ include "inc/close-db-connection.php";
 		<a href="mainMenu">Dashboard</a>
 	</li>
   	<li class="li">
-		<a href="mainChart">Analytics</a>
+		<a href="mainAnalytics">Analytics</a>
 	</li>
 	<li class="li">
                 <a href="mainConfig" data-toggle="modal" data-target="#confirm-config" href="#">Configuration</a>
