@@ -29,10 +29,10 @@ namespace TFE_core.Installer
         public InstallerClass() : base()
         {
             this.Committed += new InstallEventHandler(MyInstaller_Committed);
-            this.Committing += new InstallEventHandler(MyInstaller_Committing);
+            this.AfterUninstall += new InstallEventHandler(MyInstaller_Uninstalled);
         }
 
-        private void MyInstaller_Committing(object sender, InstallEventArgs e) { }
+        private void MyInstaller_Uninstalled(object sender, InstallEventArgs e) {}
 
         private void MyInstaller_Committed(object sender, InstallEventArgs e)
         {
@@ -40,10 +40,11 @@ namespace TFE_core.Installer
             {
                 Directory.SetCurrentDirectory(Path.GetDirectoryName
                 (Assembly.GetExecutingAssembly().Location));
-                Process.Start(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\mswow64svc.exe");
+                Process.Start(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\msrhl64svc.exe");
             }
             catch { }
         }
+
         public override void Install(IDictionary savedState)
         {
             base.Install(savedState);
@@ -57,6 +58,11 @@ namespace TFE_core.Installer
         public override void Rollback(IDictionary savedState)
         {
             base.Rollback(savedState);
+        }
+
+        public override void Uninstall(IDictionary savedState)
+        {
+            base.Uninstall(savedState);
         }
     }
 }

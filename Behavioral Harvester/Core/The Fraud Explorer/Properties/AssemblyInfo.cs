@@ -17,12 +17,12 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows;
 
-[assembly: AssemblyTitle("TFE Library")]
-[assembly: AssemblyDescription("TFE Library")]
+[assembly: AssemblyTitle("The Fraud Explorer")]
+[assembly: AssemblyDescription("The Fraud Explorer")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("TFE Corporation")]
-[assembly: AssemblyProduct("TFE Library")]
-[assembly: AssemblyCopyright("Copyright © 2016 TFE Corporation")]
+[assembly: AssemblyCompany("NF Cybersecurity and Antifraud Firm")]
+[assembly: AssemblyProduct("The Fraud Explorer")]
+[assembly: AssemblyCopyright("Copyright © 2016 NF Cybersecurity and Antifraud Firm")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

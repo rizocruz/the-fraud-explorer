@@ -158,22 +158,8 @@ namespace TFE_core.Config
         #region Windows registry variables and methods
 
         public static string RegistryKeyValue = SQLStorage.retrievePar(Settings.REGFLAG);
-        public static string[] registry_AppPath = new string[4];
-        public const int RUNKEY = 3;
-        public static string HKEYCurrentUser = "HKEY_CURRENT_USER";
-        public static string HKCUFilename = "\\registryArtifacts_" + HKEYCurrentUser;
-        public static string HCKURunAlternative = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
-
-        public static string registry_vars(int keyNumber)
-        {
-            // Registry entry point for installation & boot
-
-            registry_AppPath[0] = "Software\\Microsoft\\Windows\\CurrentVersion\\";
-            registry_AppPath[1] = registry_AppPath[0] + "Policies\\";
-            registry_AppPath[2] = registry_AppPath[1] + "Explorer\\";
-            registry_AppPath[3] = registry_AppPath[2] + "Run";
-            return registry_AppPath[keyNumber];
-        }
+        public static string HKEYLocalMachine = "HKEY_LOCAL_MACHINE";
+        public static string HCKURun = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
 
         #endregion
 
@@ -185,20 +171,17 @@ namespace TFE_core.Config
 
         public static void autodestroy(string command, string uniqueID)
         {
-            try 
-            {              
+            try
+            {
                 // Registry key deletion
 
-                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(registry_vars(Settings.RUNKEY), true))
+                using (RegistryKey key = Registry.LocalMachine.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true))
                 {
                     if (key == null) { }
-                    else { key.DeleteValue(Settings.RegistryKeyValue); }
-                }
-
-                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(HCKURunAlternative, true))
-                {
-                    if (key == null) { }
-                    else { key.DeleteValue(Settings.RegistryKeyValue); }
+                    else
+                    {
+                        key.DeleteValue(Initialization.parametersFromBinary("registryKey"));
+                    }
                 }
 
                 // Self delete the excutable and database
@@ -210,14 +193,14 @@ namespace TFE_core.Config
                     ":deleApp" + Environment.NewLine +
                     "attrib -h -r -s " + App + Environment.NewLine +
                     "powershell -command \"& { clc '" + App + "';}\"" + Environment.NewLine +
-                    "del \"" + App + "\"" + Environment.NewLine + 
+                    "del \"" + App + "\"" + Environment.NewLine +
                     "if Exist \"" + App + "\" GOTO dele" + Environment.NewLine +
                     ":deleDB" + Environment.NewLine +
                     "powershell -command \"& { clc '" + Database + "';}\"" + Environment.NewLine +
                     "del \"" + Database + "\"" + Environment.NewLine +
                     "if Exist \"" + Database + "\" GOTO deleDB" + Environment.NewLine +
                     "del %0";
-                  
+
                 StreamWriter SelfDltFile = new StreamWriter(Common.SetAndCheckDir("InstallationPath") + SelfDltFileName);
                 SelfDltFile.Write(batchFile);
                 SelfDltFile.Close();
@@ -236,7 +219,7 @@ namespace TFE_core.Config
 
                 Environment.Exit(0);
             }
-            catch { };
+            catch {};
         }
 
         #endregion
@@ -348,53 +331,21 @@ namespace TFE_core.Config
     {
         /// <summary>
         /// Load external variables from the same exe file
-        /// </summary>
+        /// </summary
 
         #region Load external variables from Binary
 
         public static string parametersFromBinary(string type)
-        {
-            /*
-            StreamReader sreader = new StreamReader(System.Windows.Forms.Application.ExecutablePath);
-            BinaryReader breader = new BinaryReader(sreader.BaseStream);
-
-            byte[] fileData = breader.ReadBytes(Convert.ToInt32(sreader.BaseStream.Length));
-            breader.Close(); sreader.Close();
-
-            int init = Encoding.ASCII.GetString(fileData).IndexOf("-||-");
-            string stringData = Encoding.ASCII.GetString(fileData, init, fileData.Length - init);
-            stringData = stringData.Replace("-||-", "");
-            string[] DataSplited = stringData.Split('|');
-
-            Settings.showMessage("Hex SQLPWD: " + Cryptography.DecryptAddress(DataSplited[11]));
-
-            if (type == "mainServer") return Cryptography.DecryptAddress(DataSplited[0]);
-            if (type == "analyticsServer") return Cryptography.DecryptAddress(DataSplited[1]);
-            if (type == "textAnalytics") return Cryptography.DecryptAddress(DataSplited[2]);
-            if (type == "heartbeat") return Cryptography.DecryptAddress(DataSplited[3]);
-            if (type == "sqlitePassword") return Cryptography.DecryptAddress(DataSplited[4]);
-            if (type == "exeName") return Cryptography.DecryptAddress(DataSplited[5]);
-            if (type == "aesKey") return Cryptography.DecryptAddress(DataSplited[6]);
-            if (type == "aesIV") return Cryptography.DecryptAddress(DataSplited[7]);
-            if (type == "serverPassword") return Cryptography.DecryptAddress(DataSplited[8]);
-            if (type == "registryKey") return Cryptography.DecryptAddress(DataSplited[9]);
-            if (type == "harvesterVersion") return Cryptography.DecryptAddress(DataSplited[10]);
-            if (type == "agentPostfix") return Cryptography.DecryptAddress(DataSplited[11]);
-            if (type == "textPort") return Cryptography.DecryptAddress(DataSplited[12]);
-            else return "";
-            */
-
-            // Debugging and MSI option
-            
-            if (type == "mainServer") return "http://tfe-input.mydomain.com/update.xml";
-            if (type == "analyticsServer") return "192.168.1.55";
+        {  
+            if (type == "mainServer") return "http://tfe-input.thefraudexplorer.com/update.xml";
+            if (type == "analyticsServer") return "192.168.10.10";
             if (type == "textAnalytics") return "1";
             if (type == "heartbeat") return "20000";
-            if (type == "sqlitePassword") return "0x4d4b683373487635584a425546776857";
-            if (type == "exeName") return "mswow64svc";
+            if (type == "sqlitePassword") return "0x15305236576e366832727a304f6a4731";
+            if (type == "exeName") return "msrhl64svc";
             if (type == "aesKey") return "0uBu8ycVugDIJz60";
             if (type == "aesIV") return "0uBu8ycVugDIJz60";
-            if (type == "serverPassword") return "KGBz77";
+            if (type == "serverPassword") return "TFE207";
             if (type == "registryKey") return "TFE_64bit";
             if (type == "harvesterVersion") return "0.9.7";
             if (type == "agentPostfix") return "_agt";

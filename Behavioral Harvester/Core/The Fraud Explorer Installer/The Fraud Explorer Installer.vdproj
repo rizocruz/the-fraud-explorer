@@ -15,73 +15,31 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0C76C814C4CE1A5FA9F47533279698EF"
+        "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_173B255842D1467919C17CF618D9D973"
+        "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_173B255842D1467919C17CF618D9D973"
+        "OwnerKey" = "8:_0C76C814C4CE1A5FA9F47533279698EF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_23264CD3333F4474E90C3D0F9BD4D4A0"
-        "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_3778EA8B61FCB8A063BA1E521EC51055"
-        "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_420D91879DA86C429D858DCEE2B922D2"
-        "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_420D91879DA86C429D858DCEE2B922D2"
-        "OwnerKey" = "8:_FB230BA8196071A37303635ADF8660FB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A89C0942FA888E51BE483CDC26950B16"
-        "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B33252123B286F58B6E7078D81AA7386"
-        "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B33252123B286F58B6E7078D81AA7386"
-        "OwnerKey" = "8:_FD53786BA678A0BA0901E9692A22F319"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D1F256F344A0E5AD6CE60B0F02BAAF60"
-        "OwnerKey" = "8:_23264CD3333F4474E90C3D0F9BD4D4A0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D1F256F344A0E5AD6CE60B0F02BAAF60"
-        "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FB230BA8196071A37303635ADF8660FB"
-        "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FD53786BA678A0BA0901E9692A22F319"
+        "MsmKey" = "8:_E16FDEAEA9797428E5AE5D74339D14B0"
         "OwnerKey" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -94,49 +52,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FD53786BA678A0BA0901E9692A22F319"
+        "OwnerKey" = "8:_0C76C814C4CE1A5FA9F47533279698EF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B33252123B286F58B6E7078D81AA7386"
+        "OwnerKey" = "8:_173B255842D1467919C17CF618D9D973"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FB230BA8196071A37303635ADF8660FB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_420D91879DA86C429D858DCEE2B922D2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3778EA8B61FCB8A063BA1E521EC51055"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A89C0942FA888E51BE483CDC26950B16"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_23264CD3333F4474E90C3D0F9BD4D4A0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D1F256F344A0E5AD6CE60B0F02BAAF60"
+        "OwnerKey" = "8:_E16FDEAEA9797428E5AE5D74339D14B0"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -164,6 +92,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -203,9 +139,23 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_456910349AAB493E985EEA1901A48B67"
+            {
+            "Name" = "8:Rollback The Fraud Explorer"
+            "Condition" = "8:"
+            "Object" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
+            "FileType" = "3:2"
+            "InstallAction" = "3:3"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_3F4E3B97_2BB5_443A_8F0C_B7379C9A043C"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_7CCE3457A6EE4A25BF00679D985BBA2E"
             {
-            "Name" = "8:Primary output from The Fraud Explorer (Active)"
+            "Name" = "8:Commit The Fraud Explorer"
             "Condition" = "8:"
             "Object" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
             "FileType" = "3:2"
@@ -217,13 +167,13 @@
             "InstallerClass" = "11:TRUE"
             "CustomActionData" = "8:"
             }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_8ACA637F5955435D88FFD7B528F38B2E"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_B06B9EE38FF34EA7B0893E3D2297AC57"
             {
-            "Name" = "8:Primary output from The Fraud Explorer (Active)"
+            "Name" = "8:Uninstall The Fraud Explorer"
             "Condition" = "8:"
             "Object" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
             "FileType" = "3:2"
-            "InstallAction" = "3:3"
+            "InstallAction" = "3:4"
             "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
@@ -233,7 +183,7 @@
             }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_F34844B27E25467186384CECDC74ABA5"
             {
-            "Name" = "8:Primary output from The Fraud Explorer (Active)"
+            "Name" = "8:Install The Fraud Explorer"
             "Condition" = "8:"
             "Object" = "8:_22B0BBFA1D8C4C2ABF673EE644E302D0"
             "FileType" = "3:2"
@@ -268,20 +218,20 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_23264CD3333F4474E90C3D0F9BD4D4A0"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0C76C814C4CE1A5FA9F47533279698EF"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Community.CsharpSqlite.SQLiteClient, Version=3.7.7.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_23264CD3333F4474E90C3D0F9BD4D4A0"
+                    "_0C76C814C4CE1A5FA9F47533279698EF"
                     {
-                    "Name" = "8:AForge.Video.DirectShow.dll"
+                    "Name" = "8:Community.CsharpSqlite.SQLiteClient.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:AForge.Video.DirectShow.dll"
+            "SourcePath" = "8:Community.CsharpSqlite.SQLiteClient.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_94F2A774D8F84BF3BBECE0C617F4E493"
@@ -299,107 +249,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3778EA8B61FCB8A063BA1E521EC51055"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NDde, Version=2.1.563.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_3778EA8B61FCB8A063BA1E521EC51055"
-                    {
-                    "Name" = "8:NDde.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:NDde.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_94F2A774D8F84BF3BBECE0C617F4E493"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_420D91879DA86C429D858DCEE2B922D2"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:PacketDotNet, Version=0.13.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_420D91879DA86C429D858DCEE2B922D2"
-                    {
-                    "Name" = "8:PacketDotNet.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:PacketDotNet.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_94F2A774D8F84BF3BBECE0C617F4E493"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A89C0942FA888E51BE483CDC26950B16"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_A89C0942FA888E51BE483CDC26950B16"
-                    {
-                    "Name" = "8:log4net.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:log4net.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_94F2A774D8F84BF3BBECE0C617F4E493"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B33252123B286F58B6E7078D81AA7386"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_173B255842D1467919C17CF618D9D973"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Community.CsharpSqlite, Version=3.7.7.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B33252123B286F58B6E7078D81AA7386"
+                    "_173B255842D1467919C17CF618D9D973"
                     {
                     "Name" = "8:Community.CsharpSqlite.dll"
                     "Attributes" = "3:512"
@@ -423,82 +280,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D1F256F344A0E5AD6CE60B0F02BAAF60"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E16FDEAEA9797428E5AE5D74339D14B0"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D1F256F344A0E5AD6CE60B0F02BAAF60"
+                    "_E16FDEAEA9797428E5AE5D74339D14B0"
                     {
-                    "Name" = "8:AForge.Video.dll"
+                    "Name" = "8:log4net.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:AForge.Video.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_94F2A774D8F84BF3BBECE0C617F4E493"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FB230BA8196071A37303635ADF8660FB"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpPcap, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_FB230BA8196071A37303635ADF8660FB"
-                    {
-                    "Name" = "8:SharpPcap.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpPcap.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_94F2A774D8F84BF3BBECE0C617F4E493"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FD53786BA678A0BA0901E9692A22F319"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Community.CsharpSqlite.SQLiteClient, Version=3.7.7.1, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_FD53786BA678A0BA0901E9692A22F319"
-                    {
-                    "Name" = "8:Community.CsharpSqlite.SQLiteClient.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Community.CsharpSqlite.SQLiteClient.dll"
+            "SourcePath" = "8:log4net.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_94F2A774D8F84BF3BBECE0C617F4E493"
@@ -545,7 +340,7 @@
                 {
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_94F2A774D8F84BF3BBECE0C617F4E493"
                     {
-                    "Name" = "8:TFE Library"
+                    "Name" = "8:The Fraud Explorer"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
@@ -571,24 +366,24 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:TFE Library"
-        "ProductCode" = "8:{B1CCF107-35BD-4E64-A427-25C8DB4ACD22}"
-        "PackageCode" = "8:{3F822F82-FCB6-4113-BFC7-587600950FD2}"
+        "ProductName" = "8:The Fraud Explorer"
+        "ProductCode" = "8:{266E3C4B-F653-4350-9E83-05DDCA96D92F}"
+        "PackageCode" = "8:{777B4ED7-DA5D-44A0-9324-DB3653DA5401}"
         "UpgradeCode" = "8:{C0DC7C39-1D2F-4422-AFF1-EBF10B2DF93B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:TFE Corporation"
+        "ProductVersion" = "8:0.9.7"
+        "Manufacturer" = "8:Universal Drivers Corporation"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:TFE Library"
+        "Title" = "8:The Fraud Explorer"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Brian Trump"
+        "ARPCONTACT" = "8:Universal Drivers Corporation"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:TFE Library"
+        "ARPCOMMENTS" = "8:The Fraud Explorer"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
@@ -1094,7 +889,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_22B0BBFA1D8C4C2ABF673EE644E302D0"
             {
-            "SourcePath" = "8:..\\The Fraud Explorer\\obj\\Release\\mswow64svc.exe"
+            "SourcePath" = "8:..\\The Fraud Explorer\\obj\\Release\\msrhl64svc.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_94F2A774D8F84BF3BBECE0C617F4E493"

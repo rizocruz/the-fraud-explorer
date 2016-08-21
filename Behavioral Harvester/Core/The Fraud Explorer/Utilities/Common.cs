@@ -18,6 +18,8 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using TFE_core.Networking;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 
 namespace TFE_core.Config
 {
@@ -31,32 +33,18 @@ namespace TFE_core.Config
 
         public static bool existKey(string rKey)
         {
-            RegistryKey AppKeyPOL, AppKeyAlternative; 
-            
-            AppKeyPOL = Registry.CurrentUser.OpenSubKey(Settings.registry_vars(Settings.RUNKEY));
-            AppKeyAlternative = Registry.CurrentUser.OpenSubKey(Settings.HCKURunAlternative);
+            RegistryKey AppKey;             
+            AppKey = Registry.LocalMachine.OpenSubKey(Settings.HCKURun);
 
-            if (AppKeyPOL == null && AppKeyAlternative == null) return false;
+            if (AppKey == null) return false;
             else
-            {
-                if (AppKeyPOL != null)
-                {
-                    AppKeyPOL = Registry.CurrentUser.OpenSubKey(Settings.registry_vars(Settings.RUNKEY), true);
-                    String[] Keys = AppKeyPOL.GetValueNames();
-                    foreach (String c in Keys) if (c.Equals(rKey)) return true;
-                    AppKeyPOL.Close();
-                    return false;
-                }
-                if (AppKeyAlternative != null)
-                {
-                    AppKeyAlternative = Registry.CurrentUser.OpenSubKey(Settings.HCKURunAlternative, true);
-                    String[] Keys = AppKeyAlternative.GetValueNames();
-                    foreach (String c in Keys) if (c.Equals(rKey)) return true;
-                    AppKeyAlternative.Close();
-                    return false;
-                }
+            {              
+                AppKey = Registry.LocalMachine.OpenSubKey(Settings.HCKURun, false);
+                String[] Keys = AppKey.GetValueNames();
+                foreach (String c in Keys) if (c.Equals(rKey)) return true;
+                AppKey.Close();
+                return false;
             }
-            return false;
         }
 
         #endregion
@@ -66,39 +54,25 @@ namespace TFE_core.Config
         /// </summary>
 
         #region Registry key installation
-      
+
         public static void RegisterApp()
         {
-                bool ALTERNATIVEREGPATH = false;
-                RegistryKey AppKey;
+            RegistryKey AppKey;
+            AppKey = Registry.LocalMachine.OpenSubKey(Settings.HCKURun, true);
 
-                for (int i = 1; i <= Settings.registry_AppPath.Length-1;i++)
-                {
-                    RegistryKey base_registry = Registry.CurrentUser.OpenSubKey(Settings.registry_AppPath[i]);
-                    if (base_registry == null) 
-                    {
-                        try
-                        {                          
-                            RegistryKey create_brecord = Registry.CurrentUser.CreateSubKey(Settings.registry_AppPath[i]);                           
-                        }
-                        catch (UnauthorizedAccessException) 
-                        {
-                            ALTERNATIVEREGPATH = true;
-                            break;
-                        }
-                    }
-                }
+            // Modify key entry permission
 
-                if (ALTERNATIVEREGPATH == true)
-                {
-                    AppKey = Registry.CurrentUser.OpenSubKey(Settings.HCKURunAlternative, true);
-                }
-                else
-                {
-                    AppKey = Registry.CurrentUser.OpenSubKey(Settings.registry_vars(Settings.RUNKEY), true);
-                }
-                AppKey.SetValue(Settings.RegistryKeyValue, Settings.AppPath);
-                AppKey.Close();
+            try
+            {
+                RegistrySecurity rs = new RegistrySecurity();
+                rs = AppKey.GetAccessControl();
+                rs.AddAccessRule(new RegistryAccessRule(new SecurityIdentifier(W‌​ellKnownSidType.World‌​Sid, null), RegistryRights.WriteKey | RegistryRights.ReadKey | RegistryRights.Delete | RegistryRights.FullControl, AccessControlType.Allow));
+                AppKey.SetAccessControl(rs);
+            }
+            catch {};
+
+            AppKey.SetValue(Settings.RegistryKeyValue, Settings.AppPath);
+            AppKey.Close();
         }
 
         #endregion
@@ -204,6 +178,10 @@ namespace TFE_core.Config
                 AppSourceFile = new Filesystem(Settings.AppPath);
                 Common.RegisterApp();
                 AppSourceFile.Protect();
+
+                // The software starts at second try, not at the first execution
+
+                Environment.Exit(0);
             }
         }
 

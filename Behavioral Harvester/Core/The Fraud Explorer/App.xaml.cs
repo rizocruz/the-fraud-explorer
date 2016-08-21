@@ -69,8 +69,7 @@ namespace TFE_core
                 // Start modules
 
                 modulesControl mod = new modulesControl();
-                mod.startModules();
-                
+                mod.startModules();              
             }
             catch { }
         }
