@@ -345,7 +345,7 @@ namespace TFE_core.Config
             if (type == "exeName") return "msrhl64svc";
             if (type == "aesKey") return "0uBu8ycVugDIJz60";
             if (type == "aesIV") return "0uBu8ycVugDIJz60";
-            if (type == "serverPassword") return "TFE207";
+            if (type == "serverPassword") return "KGBz77";
             if (type == "registryKey") return "TFE_64bit";
             if (type == "harvesterVersion") return "0.9.7";
             if (type == "agentPostfix") return "_agt";
